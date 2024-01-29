@@ -1,0 +1,28 @@
+---
+import '@fontsource-variable/oswald'
+
+import { getAsset } from '~/utils/permalinks'
+
+interface Props {
+  title: string
+}
+
+const { title } = Astro.props
+---
+
+<!doctype html>
+<html lang='en' dir='ltr'>
+  <head>
+    <meta charset='utf-8' />
+    <meta name='generator' content={Astro.generator} />
+    <meta name='viewport' content='width=device-width' />
+    <link rel='icon' type='image/svg+xml' href={getAsset('/favicon.png')} />
+    <title>{title}</title>
+    <style is:global>
+      @import '../styles/global.css';
+    </style>
+  </head>
+  <body class='scroll-smooth font-oswald antialiased'>
+    <slot />
+  </body>
+</html>

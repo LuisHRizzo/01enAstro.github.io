@@ -1,0 +1,26 @@
+---
+import { Image } from 'astro:assets'
+
+import logo from '~/public/images/logo.png'
+---
+
+<footer
+  class='w-full bg-gradient-to-br from-gradient3 via-gradient2 to-gradient1 py-8' id="contact"
+>
+  <div
+    class='mx-auto flex h-full w-full max-w-screen-xl flex-col items-center px-10 sm:flex-row sm:justify-between'
+  >
+    <a href='/'
+      ><Image
+        class='w-52 cursor-pointer pb-8 sm:pb-0 lg:w-72'
+        src={logo}
+        alt='logo'
+      /></a
+    >
+    <p class='text-justify text-white'>
+      © 01 INFINITO LLC. 7345 W SAND LAKE RD<br />
+       STE 210 OFFICE 3652. ORLANDO, FL. US 32819<br />
+      <a href='mailto:contact@01infinito.com'>contact@01infinito.com</a>
+    </p>
+  </div>
+</footer>

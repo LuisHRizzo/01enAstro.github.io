@@ -1,0 +1,63 @@
+---
+import { Image } from 'astro:assets'
+import logo from '~/public/images/logo.png'
+import NavItem from './NavItem'
+import { writable, type Writable } from 'svelte/store';
+
+
+const { pathname } = Astro.url
+
+const isMenuOpen: Writable<boolean> = writable<boolean>(false);
+
+// Suscribirse a isMenuOpen para ver su valor actual
+isMenuOpen.subscribe((value: boolean) => console.log(value));
+
+function toggleMenu() {
+  isMenuOpen.update(value => !value);
+}
+
+  const navItems = [
+    { label: 'HOME', href: '/' },
+    { label: 'WHO WE ARE', href: '#who' },
+    { label: 'WHAT WE DO', href: '#what' },
+    { label: 'PROJECTS', href: '#projects' },
+    { label: 'PARTNERS', href: '#partners' },
+    { label: 'CONTACT', href: '#contact' }
+  ]
+
+  
+---
+    <header class='sticky top-0 z-50 w-full bg-gradient1'>
+      <div class='mx-auto flex h-auto w-full max-w-screen-xl flex-col items-center justify-center px-10 py-6 md:flex-row'>
+        <a href='/'>
+          <Image class='h-auto w-96 cursor-pointer' src={logo} alt='logo' />
+        </a>
+
+        <div class='flex w-full items-center justify-center md:justify-end'>
+          {/* Botón de hamburguesa */}
+          <button class={`md:hidden text-white ${isMenuOpen ? 'block' : ''}`} onclick=`${toggleMenu()}`>
+            <svg
+              class="h-8 w-8"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16m-7 6h7"
+              />
+            </svg>
+          </button>
+
+          {/* Menú desplegable */}
+          <div class={`md:flex flex-col md:flex-row md:space-x-4 mt-4 sm:mt-0 ${isMenuOpen ? 'hidden' : 'block'}`}>
+            {navItems.map(({ label, href }) => (
+              <NavItem label={label} href={href} />
+            ))}
+          </div>
+        </div>
+      </div>
+    </header>
+  

@@ -1,0 +1,51 @@
+---
+import Particles from 'astro-particles'
+import type { ISourceOptions } from "tsparticles-engine";
+
+---
+
+
+
+<script>
+  import { type Engine, tsParticles } from "tsparticles-engine";
+  import { loadFull } from 'tsparticles'
+  window.particlesInit = async function (engine: Engine) {
+        await loadFull(engine);
+        }
+</script>
+<Particles
+  class='absolute'
+  url='/particles.json'
+  id='tsparticles'
+  init='particlesInit'
+/>
+
+<!-- <Particles id="tsparticles" options={options} init="particlesInit" /> -->
+
+<!-- <Particles
+  options={{
+    particles: {
+      color : {
+        value: '#fd7e14'
+      },
+      number: {
+        value: 50,
+        },
+        opacity: {
+          value: {min: 0.3, max: 0.8}
+        },
+        shape:{
+          type: 'circle'
+        },
+        links:{
+          enable: true,
+          distance: 100
+        },
+        move:{
+          enable: true
+        },
+      } 
+
+    }} 
+  
+/> -->

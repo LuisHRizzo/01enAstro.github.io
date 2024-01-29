@@ -1,0 +1,20 @@
+---
+interface Props {
+  href?: string
+  target?: astroHTML.JSX.HTMLAttributeAnchorTarget | undefined | null
+  class?: string
+}
+
+const { href = '#', target, class: className } = Astro.props
+---
+
+<a
+  class:list={[
+    'flex w-fit border border-white px-8 py-3.5 font-medium text-white duration-150 hover:bg-primary',
+    className
+  ]}
+  href={href}
+  target={target}
+>
+  <slot />
+</a>

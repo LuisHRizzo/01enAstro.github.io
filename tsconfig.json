@@ -1,0 +1,23 @@
+{
+  "extends": "astro/tsconfigs/strict",
+  "compilerOptions": {
+    "verbatimModuleSyntax": true,
+    "plugins": [
+      {
+        "name": "@astrojs/ts-plugin"
+      }
+    ],
+    // Alias `src` to `~`
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["./src/*"],
+      "~/public/*": ["./public/*"]
+    },
+    "jsx": "preserve"
+  },
+  "ts-node": {
+    "compilerOptions": {
+      "types": ["node", "vite/client"]
+    }
+  }
+}

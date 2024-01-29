@@ -1,0 +1,14 @@
+.underline-custom {
+  @apply relative cursor-pointer no-underline;
+}
+
+.underline-custom::after {
+  content: '';
+  background: rgba(56, 178, 172, var(--text-opacity));
+  @apply absolute bottom-0 left-0 h-1 w-full origin-right scale-x-0 transform pt-1 transition-transform duration-200 ease-in;
+}
+
+.underline-custom:hover::after,
+.underline-custom:focus::after {
+  @apply origin-left scale-x-100 transform;
+}

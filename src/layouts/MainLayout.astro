@@ -1,0 +1,14 @@
+---
+import BasicLayout from './BasicLayout.astro'
+
+import { Footer, Header } from '~/components'
+import { SITE } from '~/config.mjs'
+
+const { year, company } = SITE
+---
+
+<BasicLayout title={company}>
+  <Header />
+  <slot />
+  <Footer />
+</BasicLayout>

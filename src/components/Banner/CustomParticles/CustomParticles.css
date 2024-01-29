@@ -1,0 +1,9 @@
+#tsparticles {
+  display: flex;
+  height: 1rem;
+  width: 100vw;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+}

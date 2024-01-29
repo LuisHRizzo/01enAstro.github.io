@@ -1,0 +1,17 @@
+---
+import './NavItem.css'
+
+interface Props {
+  href?: string
+  label: string
+}
+
+const { href = '/', label } = Astro.props
+---
+
+<a
+  class='underline-custom mx-6 text-sm font-normal uppercase text-white'
+  href={href}
+>
+  {label}
+</a>
