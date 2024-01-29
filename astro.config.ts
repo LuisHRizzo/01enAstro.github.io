@@ -5,7 +5,7 @@ import { defineConfig } from 'astro/config'
 
 // https://astro.build/config
 export default defineConfig({
-  site: SITE.origin,
+  site: 'https://01emAstro.github.io',
   base: SITE.basePathname,
   compressHTML: true,
   trailingSlash: 'always',
